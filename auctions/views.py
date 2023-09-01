@@ -103,7 +103,7 @@ def create_listing(request):
 # Page with all auctions and details including picture.
 def active_listings(request):
     auctions = AuctionListing.objects.all()
-    return render(request, 'activelistings.html', {
+    return render(request, 'auctions/activelistings.html', {
         "auctions": auctions,
     })
 
