@@ -1,0 +1,16 @@
+{% extends "auctions/layout.html" %}
+
+
+{% block body %}
+<form method="post" action="{% url 'createlisting' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% csrf_token %}
+    <input type="submit">
+    <!--Let user know if auction was created successfully-->
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+</form>
+
+{% endblock %}

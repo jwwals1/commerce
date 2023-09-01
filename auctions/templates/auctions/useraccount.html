@@ -1,0 +1,20 @@
+{% extends 'auctions/layout.html' %}
+
+ 
+
+{% block body %}
+    <!--User account with their auctions and bids-->
+    <div>
+        <h1>Hello {{ user.username }}</h1>
+
+        {% for auction_selling in auction_sellings %}<br>
+        {{ auction_selling.product_name }}: {{ auction_selling.brief_description }} 
+        ${{auction_selling.price}}. Created at {{auction_selling.created_at}}<br></a>
+        {% endfor %}
+
+        <br><br>
+        {% for all_bid in all_bids %}
+        {{ all_bid }} on Auction Information: <br>{{ all_bid.auction }}<br><br>
+        {% endfor %}
+    </div>
+{% endblock %}

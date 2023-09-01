@@ -1,0 +1,19 @@
+{% extends "auctions/layout.html" %}
+
+
+{% block body %}
+<div>
+    <h2>Active Listings</h2>
+    <ul>
+    {% for auction in auctions %}
+    <li>
+    <!--All auctions with link to individual auctions-->
+    <a href="{% url 'listingpage' auction.id %}">{{ auction }}, 
+        {{auction.brief_description}} Price: ${{auction.price}}</br></a>
+   </li>
+    {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock %}
