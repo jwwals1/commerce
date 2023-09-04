@@ -1,13 +1,14 @@
+{% extends "auctions/layout.html" %}
+
 {% block body %}
 <div>
     <h1>Active Listings</h1>
-    <a href="{% url 'index' %}">Homepage</a><br>
     {% for auction in auctions %}
     <a href="{% url 'listingpage' auction.id %}">
     <br>
     {{ auction }}: {{auction.brief_description}} Price: ${{auction.price}}. Created at: {{auction.created_at}}</br></a>
         {% if auction.product_image %}
-        <img src="{{auction.product_image.url}}" width="400", height="200" alt="Picture"></p>
+        <img src="{{auction.product_image.url}}" width="400" alt="Picture"></p>
        {%endif%}
     {% endfor %}
 </div>

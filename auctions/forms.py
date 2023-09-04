@@ -4,9 +4,21 @@ from .models import AuctionListing, Comment, Bid
 
 
 class CreateListingForm(forms.ModelForm):
-    product_name = forms.CharField(max_length=30)
-    brief_description = forms.CharField(max_length=30)
-    price = forms.DecimalField(max_digits=6, min_value=2)
+    product_name = forms.CharField(max_length=30, widget=forms.TextInput(
+        attrs={
+            'style': 'border-radius: 10px;',
+        }))
+
+    brief_description = forms.CharField(max_length=30, widget=forms.TextInput(
+        attrs={
+            'style': 'border-radius: 10px;'
+        }))
+
+    price = forms.DecimalField(max_digits=6, min_value=2, widget=forms.TextInput(
+        attrs={
+            'style': 'border-radius: 10px;'
+        }))
+
     product_image = forms.ImageField(required=False)
 
     class Meta:
@@ -16,7 +28,10 @@ class CreateListingForm(forms.ModelForm):
 
 
 class CommentForm(forms.ModelForm):
-    comment_text = forms.CharField()
+    comment_text = forms.CharField(label="Comment", widget=forms.TextInput(
+        attrs={'placeholder': 'Make Comment',
+               'style': 'border-radius: 10px;'
+               }))
 
     class Meta:
         model = Comment
@@ -24,7 +39,10 @@ class CommentForm(forms.ModelForm):
 
 
 class BidForm(forms.ModelForm):
-    bid_price = forms.DecimalField(max_digits=6, decimal_places=2)
+    bid_price = forms.DecimalField(max_digits=6, decimal_places=2, widget=forms.TextInput(
+        attrs={'placeholder': 'Make Bid',
+               'style': 'border-radius: 10px;',
+               }))
 
     class Meta:
         model = Bid

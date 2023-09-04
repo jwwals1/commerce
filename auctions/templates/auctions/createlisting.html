@@ -6,7 +6,7 @@
     {% csrf_token %}
     {{ form.as_p }}
     {% csrf_token %}
-    <input type="submit">
+    <input type="submit" class="button">
     <!--Let user know if auction was created successfully-->
     {% for message in messages %}
     {{ message }}
