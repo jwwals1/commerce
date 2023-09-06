@@ -9,7 +9,7 @@ class CreateListingForm(forms.ModelForm):
             'style': 'border-radius: 10px;',
         }))
 
-    brief_description = forms.CharField(max_length=30, widget=forms.TextInput(
+    brief_description = forms.CharField(max_length=300, widget=forms.TextInput(
         attrs={
             'style': 'border-radius: 10px;'
         }))
